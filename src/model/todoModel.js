@@ -25,6 +25,9 @@ const todoSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    dueDate: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -2,19 +2,16 @@ const httpError = require("http-errors");
 const { TodoDB } = require("../model/todoModel");
 
 async function createTodo(req, res, next) {
-  const { title, description, priority, status } = req.body;
+  const { title, description, priority, status, dueDate } = req.body;
   try {
     const todo = await TodoDB.findOne({ title });
-
-    if (todo) {
-      return next(httpError.BadRequest("Todo already exits.."));
-    }
 
     const newTodo = new TodoDB({
       title: title,
       description: description,
       priority: priority,
       status: status,
+      dueDate: dueDate,
     });
 
     await newTodo.save();
