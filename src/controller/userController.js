@@ -1,5 +1,7 @@
 const httpError = require("http-errors");
 const { UserDB } = require("../model/userModel");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 async function createUser(req, res, next) {
   const { firstname, lastname, email, username, password } = req.body;
@@ -135,6 +137,27 @@ async function filterResult(req, res, next) {
   }
 }
 
+async function login(req, res, next) {
+  const { email, password } = req.body;
+  let isPasswordValid;
+  try {
+    const user = await UserDB.findOne({ email });
+    if (!user) {
+      return next(httpError.NotFound("Invalid credentials"));
+    }
+    if (user.password != password) {
+      return next(httpError.NotFound("Invalid Credintials"));
+    }
+
+    isPasswordValid = await bcrypt.compare(password, user.password);
+    delete user.password;
+    const token = jwt.sign({ user }, "todo", { expiresIn: "1h" });
+    res.status(200).json({ message: "Login successful", token });
+  } catch (err) {
+    return next(httpError.InternalServerError(err.message));
+  }
+}
+
 module.exports = {
   createUser,
   getAllUser,
@@ -142,4 +165,5 @@ module.exports = {
   updateUser,
   deleteUser,
   filterResult,
+  login,
 };
