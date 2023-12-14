@@ -9,6 +9,10 @@ const todoSchema = new mongoose.Schema(
       unique: true,
       default: uuidv4,
     },
+    username: {
+      type: String,
+      unique: true,
+    },
     title: {
       type: String,
       require: true,

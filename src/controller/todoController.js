@@ -3,10 +3,10 @@ const { TodoDB } = require("../model/todoModel");
 
 async function createTodo(req, res, next) {
   const { title, description, priority, status, dueDate } = req.body;
-  try {
-    const todo = await TodoDB.findOne({ title });
 
+  try {
     const newTodo = new TodoDB({
+      username: req.user.username,
       title: title,
       description: description,
       priority: priority,
@@ -26,7 +26,8 @@ async function createTodo(req, res, next) {
 }
 
 async function getAllTodo(req, res, next) {
-  const todo = await TodoDB.find();
+  console.log(req.user);
+  const todo = await TodoDB.find({ username: req.user.username });
   try {
     if (todo.length > 0) {
       return res.status(200).json({

@@ -151,8 +151,8 @@ async function login(req, res, next) {
 
     isPasswordValid = await bcrypt.compare(password, user.password);
     delete user.password;
-    const token = jwt.sign({ user }, "todo", { expiresIn: "1h" });
-    res.status(200).json({ message: "Login successful", token });
+    const token = jwt.sign({ user }, "todo", { expiresIn: "7d" });
+    res.status(200).json({ success: true, message: "Login successful", token });
   } catch (err) {
     return next(httpError.InternalServerError(err.message));
   }
