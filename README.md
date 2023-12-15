@@ -35,19 +35,19 @@ git clone https://github.com/ranupl/Todo
    Database Name : todo
 
 - repository
-- 1- Backend - todo
-- 2- Frontend - todoClient
+- Backend  -  todo
+- Frontend  -  todoClient
 
 3. install the dependencies
 
-- for Backend purpose
+- for Backend 
 
 ```sh
 cd todo
 npm install
 ```
 
-- for Fontend purpose
+- for Fontend 
 
 ```sh
 cd client1
