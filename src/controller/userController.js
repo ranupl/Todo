@@ -104,7 +104,6 @@ async function deleteUser(req, res, next) {
 }
 
 async function filterResult(req, res, next) {
-  console.log(req.query);
   try {
     const { firstname, lastname, email, username } = req.query;
     const filter = {};
