@@ -14,8 +14,8 @@
 
 | variable name | Example                |
 | ------------- | ---------------------- |
-| email         | ranupl542011@gmail.com |
-| password      | 123456789              |
+| email         | test@gmail.com |
+| password      | test123456             |
 
 ---
 
