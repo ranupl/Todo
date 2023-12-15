@@ -40,14 +40,14 @@ git clone https://github.com/ranupl/Todo
 
 3. install the dependencies
 
-- for Backend 
+- Backend dependencies install
 
 ```sh
 cd todo
 npm install
 ```
 
-- for Fontend 
+- Fontend dependencies install
 
 ```sh
 cd client1
