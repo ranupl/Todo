@@ -34,32 +34,32 @@ git clone https://github.com/ranupl/Todo
 2. Create a DataBase in the mongodb for locally running the porject
    Database Name : todo
 
-- there are 2 repository
-  1- Backend - todo
-  2- Frontend - todoClient
+- repository
+- 1- Backend - todo
+- 2- Frontend - todoClient
 
 3. install the dependencies
 
 - for Backend purpose
 
 ```sh
-cd Backend
+cd todo
 npm install
 ```
 
 - for Fontend purpose
 
 ```sh
-cd Frontend
+cd client1
 npm install
 ```
 
-## To Start Development :-
+## Start Development :-
 
 ### Note :
 
 - internet is connected initially to start the react server
-- 1st start backend development and then start the frontend
+- start backend development and then start the frontend
 - need to have local mongoDB set up
 
 ### Note : before starting there should be a mongodb Database
